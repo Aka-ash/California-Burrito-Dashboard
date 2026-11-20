@@ -17,6 +17,15 @@ st.markdown("""
     [data-testid="stSidebar"] { background: #101827; }
     [data-testid="stSidebar"] * { color: #eef3fb !important; }
     .block-container { padding-top: 1.6rem; padding-bottom: 2rem; }
+    /* Keep the main canvas consistently light and readable in every browser. */
+    [data-testid="stAppViewContainer"], .main, .main .block-container {
+        background-color: #f5f7fb;
+        color: #14243b;
+    }
+    .main .stMarkdown p, .main .stMarkdown li,
+    .main [data-testid="stCaptionContainer"] * {
+        color: #42536a !important;
+    }
     .hero {
         background: linear-gradient(115deg, #14243b 0%, #254e68 60%, #287c78 100%);
         padding: 1.45rem 1.7rem; border-radius: 18px; color: white;
@@ -29,10 +38,15 @@ st.markdown("""
         border-radius: 14px; box-shadow: 0 2px 8px rgba(20,36,59,.04);
     }
     div[data-testid="stMetricLabel"],
-    div[data-testid="stMetricLabel"] p { color: #52647a !important; }
+    div[data-testid="stMetricLabel"] *,
+    div[data-testid="stMetricLabel"] p { color: #42536a !important; opacity: 1 !important; }
+    div[data-testid="stMetricValue"],
+    div[data-testid="stMetricValue"] * { color: #14243b !important; opacity: 1 !important; }
     div[data-testid="stCaptionContainer"],
-    div[data-testid="stCaptionContainer"] p { color: #52647a !important; }
-    div[data-testid="stMetricValue"] { color: #14243b; }
+    div[data-testid="stCaptionContainer"] * { color: #42536a !important; opacity: 1 !important; }
+    [data-testid="stDataFrame"], [data-testid="stTable"] {
+        color: #14243b !important;
+    }
     .section-label { color: #52647a; font-size: .82rem; font-weight: 700;
                      letter-spacing: .08em; text-transform: uppercase; margin: .6rem 0; }
     .footnote { color: #718096; font-size: .8rem; }
@@ -126,8 +140,9 @@ with left:
     fig = px.line(trend, x="Order_Date", y="Revenue", markers=True,
                   title="Revenue over time", labels={"Order_Date": "Date", "Revenue": "Revenue (₹)"})
     fig.update_traces(line=dict(width=3), marker=dict(size=5))
-    fig.update_layout(template="plotly_white", margin=dict(l=15, r=15, t=55, b=15),
-                      hovermode="x unified")
+    fig.update_layout(template="plotly_white", paper_bgcolor="#FFFFFF",
+                      plot_bgcolor="#FFFFFF", font=dict(color="#14243B"),
+                      margin=dict(l=15, r=15, t=55, b=15), hovermode="x unified")
     st.plotly_chart(fig, use_container_width=True)
 
 with right:
@@ -138,8 +153,10 @@ with right:
                  title="Revenue by menu category",
                  labels={"Group": "Category", "Revenue": "Revenue (₹)"},
                  color_continuous_scale="Teal")
-    fig.update_layout(template="plotly_white", showlegend=False,
-                      margin=dict(l=15, r=15, t=55, b=15), coloraxis_showscale=False)
+    fig.update_layout(template="plotly_white", paper_bgcolor="#FFFFFF",
+                      plot_bgcolor="#FFFFFF", font=dict(color="#14243B"),
+                      showlegend=False, margin=dict(l=15, r=15, t=55, b=15),
+                      coloraxis_showscale=False)
     st.plotly_chart(fig, use_container_width=True)
 
 left, right = st.columns(2)
@@ -150,7 +167,9 @@ with left:
     fig = px.pie(order_mix, names="Order_Type", values="Orders", hole=.58,
                  title="Orders by order type",
                  color_discrete_sequence=["#287c78", "#e49b48", "#527da8"])
-    fig.update_layout(template="plotly_white", margin=dict(l=15, r=15, t=55, b=15))
+    fig.update_layout(template="plotly_white", paper_bgcolor="#FFFFFF",
+                      plot_bgcolor="#FFFFFF", font=dict(color="#14243B"),
+                      margin=dict(l=15, r=15, t=55, b=15))
     st.plotly_chart(fig, use_container_width=True)
 
 with right:
@@ -161,8 +180,10 @@ with right:
                  title="Revenue by outlet",
                  labels={"Outlet_Name": "Outlet", "Revenue": "Revenue (₹)"},
                  color="Revenue", color_continuous_scale="Teal")
-    fig.update_layout(template="plotly_white", showlegend=False,
-                      margin=dict(l=15, r=15, t=55, b=15), coloraxis_showscale=False)
+    fig.update_layout(template="plotly_white", paper_bgcolor="#FFFFFF",
+                      plot_bgcolor="#FFFFFF", font=dict(color="#14243B"),
+                      showlegend=False, margin=dict(l=15, r=15, t=55, b=15),
+                      coloraxis_showscale=False)
     st.plotly_chart(fig, use_container_width=True)
 
 # ---------- Detail tables ----------
