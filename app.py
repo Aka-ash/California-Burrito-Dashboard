@@ -44,6 +44,37 @@ st.markdown("""
     div[data-testid="stMetricValue"] * { color: #14243b !important; opacity: 1 !important; }
     div[data-testid="stCaptionContainer"],
     div[data-testid="stCaptionContainer"] * { color: #42536a !important; opacity: 1 !important; }
+
+    /* Date-range input: Streamlit's BaseWeb date picker needs explicit contrast. */
+    [data-testid="stDateInput"] input,
+    [data-testid="stDateInput"] [data-baseweb="input"] input {
+        color: #14243b !important;
+        -webkit-text-fill-color: #14243b !important;
+        opacity: 1 !important;
+        background-color: #ffffff !important;
+    }
+    [data-testid="stDateInput"] input::placeholder {
+        color: #64748b !important;
+        -webkit-text-fill-color: #64748b !important;
+        opacity: 1 !important;
+    }
+    [data-testid="stDateInput"] button,
+    [data-testid="stDateInput"] button svg,
+    [data-testid="stDateInput"] svg {
+        color: #42536a !important;
+        fill: #42536a !important;
+        opacity: 1 !important;
+    }
+    /* Calendar popover text and navigation controls. */
+    [data-baseweb="calendar"] *,
+    [data-baseweb="datepicker"] * {
+        color: #14243b;
+    }
+    [data-baseweb="calendar"] button svg,
+    [data-baseweb="datepicker"] button svg {
+        fill: #42536a !important;
+        color: #42536a !important;
+    }
     [data-testid="stDataFrame"], [data-testid="stTable"] {
         color: #14243b !important;
     }
