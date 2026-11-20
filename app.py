@@ -4,7 +4,7 @@ import plotly.express as px
 from pathlib import Path
 
 st.set_page_config(
-    page_title="Burger Town | Business Analytics",
+    page_title="California Burrito | Business Analytics",
     page_icon="🍔",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -28,7 +28,10 @@ st.markdown("""
         background: white; border: 1px solid #e8edf4; padding: 16px 18px;
         border-radius: 14px; box-shadow: 0 2px 8px rgba(20,36,59,.04);
     }
-    div[data-testid="stMetricLabel"] { color: #65758b; }
+    div[data-testid="stMetricLabel"],
+    div[data-testid="stMetricLabel"] p { color: #52647a !important; }
+    div[data-testid="stCaptionContainer"],
+    div[data-testid="stCaptionContainer"] p { color: #52647a !important; }
     div[data-testid="stMetricValue"] { color: #14243b; }
     .section-label { color: #52647a; font-size: .82rem; font-weight: 700;
                      letter-spacing: .08em; text-transform: uppercase; margin: .6rem 0; }
@@ -50,7 +53,7 @@ df = load_data(str(DATA_FILE))
 
 st.markdown("""
 <div class="hero">
-  <h1>🍔 Burger Town | Business Overview</h1>
+  <h1>🌯 California Burrito | Business Overview</h1>
   <p>Sales performance • Order trends • Product mix • Outlet comparison</p>
 </div>
 """, unsafe_allow_html=True)
@@ -184,11 +187,19 @@ with p2:
 st.markdown('<div class="section-label">Export</div>', unsafe_allow_html=True)
 csv_bytes = filtered.to_csv(index=False).encode("utf-8")
 st.download_button("⬇ Download filtered data (CSV)", data=csv_bytes,
-                   file_name="burger_town_filtered_sales.csv", mime="text/csv")
+                   file_name="california_burrito_filtered_sales.csv", mime="text/csv")
 
 st.markdown(
     '<p class="footnote">Data source: supplied assessment workbook. '
     'Orders are counted as distinct BillNo values; revenue is Price × Quantity. '
     'Filters apply to line items before the metrics and charts are recalculated.</p>',
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    '<hr style="margin-top: 2rem; border: 0; border-top: 1px solid #d9e1eb;">'
+    '<p style="text-align: center; color: #52647a; font-size: .85rem;">'
+    'Built by <strong>Akash Sinha</strong> · Software Developer Intern assessment project'
+    '</p>',
     unsafe_allow_html=True
 )

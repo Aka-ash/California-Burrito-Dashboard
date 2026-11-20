@@ -1,9 +1,11 @@
-# Burger Town Business Analytics Dashboard
+# California Burrito Business Analytics Dashboard
 
-A Streamlit dashboard built for the Software Developer Intern technical assessment. It analyses the supplied 300,000-row order-line dataset and provides interactive business metrics, charts, filters and CSV export.
+**Author:** Akash Sinha  
+
+A Streamlit dashboard built for the California Burrito Software Developer Intern technical assessment. It analyses the supplied 300,000-row order-line dataset and provides interactive business metrics, charts, filters and CSV export.
 
 ## Live application
-Add the deployed application URL here after deployment.
+https://california-burrito-dashboard-akash.streamlit.app
 
 ## Features
 - KPI cards: revenue, unique orders, items sold, average order value and line-item count.
@@ -69,7 +71,7 @@ The app opens at the local URL printed by Streamlit (usually `http://localhost:8
 1. Create a public GitHub repository and upload `app.py`, `requirements.txt`, `data.csv.gz` and this README.
 2. Sign in to Streamlit Community Cloud using GitHub.
 3. Create a new app, select the repository and branch, and set the main file path to `app.py`.
-4. Deploy. Copy the live app URL into the Live application section above.
+4. Deploy. The deployed application is available at https://california-burrito-dashboard-akash.streamlit.app.
 
 ## Assumptions and limitations
 - The supplied workbook's `Price` is treated as unit price and multiplied by `Quantity` to calculate line revenue, as described in the assessment.
