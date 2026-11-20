@@ -46,11 +46,23 @@ st.markdown("""
     div[data-testid="stCaptionContainer"] * { color: #42536a !important; opacity: 1 !important; }
 
     /* Date-range input: Streamlit's BaseWeb date picker needs explicit contrast. */
+    /* The sidebar applies a light text colour to every child. Override it
+       specifically for the date input, whose field itself is white. */
+    [data-testid="stSidebar"] [data-testid="stDateInput"] input,
+    [data-testid="stSidebar"] [data-testid="stDateInput"] input:disabled,
+    [data-testid="stSidebar"] [data-testid="stDateInput"] input[readonly],
+    [data-testid="stSidebar"] [data-testid="stDateInput"] [data-baseweb="input"] input,
     [data-testid="stDateInput"] input,
     [data-testid="stDateInput"] [data-baseweb="input"] input {
         color: #14243b !important;
         -webkit-text-fill-color: #14243b !important;
         opacity: 1 !important;
+        background-color: #ffffff !important;
+        caret-color: #14243b !important;
+        filter: none !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stDateInput"] [data-baseweb="input"],
+    [data-testid="stDateInput"] [data-baseweb="input"] {
         background-color: #ffffff !important;
     }
     [data-testid="stDateInput"] input::placeholder {
