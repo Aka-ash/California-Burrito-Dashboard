@@ -1,0 +1,13 @@
+{
+  "rows": 300000,
+  "unique_orders": 110478,
+  "revenue": 69480952,
+  "items_sold": 434448,
+  "outlets": 6,
+  "brands": 1,
+  "groups": 7,
+  "items": 45,
+  "date_min": "2025-06-17 11:02:40",
+  "date_max": "2026-06-16 23:48:34",
+  "missing_cells": 0
+}
